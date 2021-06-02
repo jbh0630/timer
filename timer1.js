@@ -1,13 +1,9 @@
 const args = process.argv.slice(2);
-const sortedArgs = args.sort(function(a, b) {
-  return a - b;
-});
 
-
-for (const a of sortedArgs) {
+for (const a of args) {
   setTimeout(() => {
-    if (a > -1 && !isNaN(a) && a) {
-      process.stdout.write(`. ${a} seconds \n`);
+    if (a >= 0 && !isNaN(a) && a) {
+      process.stdout.write(`\x07${a} seconds \n`);
     }
   }, a * 1000);
 }
